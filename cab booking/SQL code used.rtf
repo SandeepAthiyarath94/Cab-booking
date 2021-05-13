@@ -1,0 +1,145 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25400\viewh15280\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 ==============================\
+CABS ONLINE BOOKING WEB PAGE\
+==============================\
+Created by Sandeep Athiyarath\
+102005528\
+\
+DECLARATION \
+============\
+All work in this assignment is my own. However, some portion of the code will be similar to my own work in Semester 1 for Creating Web Applications Unit (COS60004)\
+\
+NOTE:\
+=====\
+The time zone used for the current time is Australia/ Victoria.\
+A change in 2 minutes from the system time was observed but was left unaltered.\
+\
+Viewpoint is not set to prevent the breakdown of structure on resizing the window size.\
+\
+Compatibility across different browsers was not tested.\
+For best performance please use Google Chrome.\
+\
+\
+SQL QUERIES USED THROUGH OUT THE WEBSITE (EXACTLY AS IMPLEMENTED)\
+===================================================================\
+\
+1. To create the customer table if the table is not already created. The code is written inside settings.php and is utilised in register.php if the table is not already created.\
+\
+$sql_db = "s102005528_db";\
+\
+$sql_customer_table= "customer";\
+\
+$createCustomerTableQuery = "CREATE TABLE if not exists `$sql_db`.`$sql_customer_table`\
+																		( `email` VARCHAR(30) NOT NULL ,\
+																		  `password` VARCHAR(20) NOT NULL,\
+																		 `customername` VARCHAR(30) NOT NULL ,\
+																		 `phoneno` VARCHAR(15) NOT NULL ,\
+																		  PRIMARY KEY (`email`))\'94;\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+2. To create the cabBooking table if not already created. The code is written in settings.php and used in bookings.php if the table is not already created .\
+\
+$sql_db = "s102005528_db";\
+	\
+$sql_booking_table= "cabBooking";\
+\
+$createBookingTableQuery = "CREATE TABLE if not exists `$sql_db`.`$sql_booking_table`\
+																	      (  `refno` INT NOT NULL AUTO_INCREMENT,\
+														  				 `email` VARCHAR(30) NOT NULL ,\
+																		 `passengername` VARCHAR(20) NOT NULL ,\
+																		 `contactno` VARCHAR(12) NOT NULL ,\
+																		`unitno` VARCHAR(5) ,\
+																		`streetno` INT NOT NULL,\
+																		`streetname` VARCHAR(20) NOT NULL ,\
+																		`suburb` VARCHAR(20) NOT NULL ,\
+																		`destinationsuburb` VARCHAR(20) NOT NULL ,\
+																		`pickupon` DATETIME NOT NULL,\
+																		`bookedon` DATETIME NOT NULL,\
+																		`status` VARCHAR(15) NOT NULL ,\
+																		PRIMARY KEY (`refno`),\
+																		FOREIGN KEY(`email`) REFERENCES customer(`email`))";\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+3. To insert data into the cabBooking table. Used in bookings.php to insert a new customer cab booking\
+\
+$insertIntoBookingTableQuery = "INSERT INTO `cabBooking`\
+																		(`refno`, `email`,`passengername`,`contactno`,\
+																		 `unitno`,`streetno`,`streetname`,`suburb`,\
+																		 `destinationsuburb`,`pickupon`,`bookedon`,\
+																		 `status`) VALUES ";\
+\
+$insertQuery = $insertIntoBookingTableQuery."('NULL','$email','$passengername','$passengerphone',\
+																					'$unitnumber','$streetnumber','$streetname','$suburb',\
+																					'$destinationsuburb', '$pickupdetails',\
+																					'$bookedon','$status');";\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+4. To insert data into the customer table. Used in register.php to add a new customer detail\
+\
+$insertIntoCustomerTableQuery = "INSERT INTO `customer`(`email`, `password`, `customername`, `phoneno`) VALUES ";\
+\
+$insertQuery = $insertIntoCustomerTableQuery."('$email','$userpassword','$cname','$phone');";\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+5. To check if the table has any data within the cabBooking table\
+\
+$listAllBookings = "SELECT b.refno FROM cabBooking b";\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+6. To check if there is any data within the customer table\
+\
+$listAllCustomers = "SELECT * FROM customer c";\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+7. . Used to validate the  register.php to check if the email is already present \
+ before inserting a new row( Check for uniqueness of email id)\
+\
+$query = "SELECT * FROM `customer` WHERE email='$email\'92;\'94;\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+8. To identify the reference number and the customer name on a successful booking to message the customer with a confirmation mail. \
+\
+$searchquery = "SELECT b.refno,c.customername\
+															  FROM customer c\
+															  INNER JOIN cabBooking b\
+															  ON c.email = b.email\
+															  WHERE b.bookedon = '$bookedon'\
+															  AND b.email = '$email';";\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+9. To retrieve the details of the booking made inorder to display the unallocated booking for the next 3 hours from the current time\
+\
+$listQuery = "SELECT c.customername, b.refno, b.passengername, b.contactno, b.unitno,\
+														     b.streetno, b.streetname, b.suburb, b.destinationsuburb, b.pickupon\
+													              FROM customer c\
+														     INNER JOIN cabBooking b\
+														     ON c.email = b.email\
+														     WHERE b.status = 'UNALLOCATED'\
+														     AND b.pickupon BETWEEN '$currentTime' AND '$uppetTimeLimit';";\
+\
+Where $uppetTimeLimit is +3 hours from the current time.\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+10. Updates the row with status as \'93ALLOCATED\'94 by matching against the reference number provided\
+\
+$updateRowQuery = "UPDATE cabBooking\
+																SET status='ALLOCATED'\
+																 WHERE refno=$refno;";\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+11. To check if the data entered to login is right\
+$query = "SELECT * FROM `customer` WHERE email='$email' and password='$password';";\
+============================================================END OF SQL STATEMENTS USED====================================================================\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+}

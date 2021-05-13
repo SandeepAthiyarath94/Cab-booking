@@ -1,0 +1,110 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue233;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c93333;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww28600\viewh15280\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 ==============================\
+CABS ONLINE BOOKING WEB PAGE\
+==============================\
+Created by Sandeep Athiyarath\
+102005528\
+\
+DECLARATION \
+============\
+All work in this assignment is my own. However, some portion of the code will be similar to my own work in Semester 1 for Creating Web Applications Unit (COS60004)\
+\
+NOTE:\
+=====\
+The time zone used for the current time is Australia/ Victoria.\
+A change in 2 minutes from the system time was observed but was left unaltered.\
+\
+Viewpoint is not set to prevent the breakdown of structure on resizing the window size.\
+\
+Compatibility across different browsers was not tested.\
+For best performance please use Google Chrome.\
+\
+\
+URL TO HOME PAGE\
+=================\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://mercury.swin.edu.au/cos80021/s102005528/assignment1/"}}{\fldrslt 
+\f1 \cf2 \expnd0\expndtw0\kerning0
+\ul \ulc2 https://mercury.swin.edu.au/cos80021/s102005528/assignment1/}}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+INSTRUCTIONS TO WEBSITE\
+========================\
+1. Index.php\
+The home page does not do anything special.\
+\
+2. Login.php\
+\
+NOTE : If you try to login without creating the table, you will get an error message saying table not found\
+\
+All fields are indicated as mandatory in the form itself to perform basic check.\
+If the email or password doesn\'92t match with the stored value, a common message is thrown to indicate invalid login credentials.\
+Upon successful login, the page is redirected to the bookings page and the email id of the logged in user is indicated below the navigation bar.\
+\
+3. Register.php\
+Upon successful registration, the control is directly passed on to the bookings page. Ie the user is logged in.\
+In case of invalid login details, all the format errors are collectively displayed on top of the form.\
+If all the field values are acceptable, then a check for duplicate email id is done and throws error if a duplicate mail id already exists.\
+\
+4. Booking.php\
+If the bookings page is accessed before logging into the site, it is redirected to the login page.\
+Once a user is logged in. The booking page session is reserved for the user until he logs out or the tab is closed.\
+Displays the logged in user email id below the navigation bar.  \
+All error messages are displayed on of the form.\
+If the time difference between booking time and pickup time is less than 40 minutes, an alert message is thrown to notify the user.\
+On successful booking an alert message is shown to the user and a mail is send as confirmation.\
+\
+5.Admin.php\
+No login is provided to keep it simple.\
+View all button displays all the bookings within the next 3 hours in a table.\
+If update button is pressed without providing a reference number or with improper format(containing special characters and alphabets) an error message is thrown.\
+If the entered reference number is not present in the displayed list of bookings for the next 3 hours, a notification message is thrown.\
+On successfully assigning a driver to a booking, it is removed from the table list and a message to indicate assigning of driver is shown.\
+\
+6.Settings.php\
+Contains the details to establish connection to sql and few sql queries.\
+\
+7.Logout.php\
+Logs out of the session\
+\
+\
+FILES IN THE DIRECTORY\
+=====================\
+PHP\
+\'97\'97\'97\
+index.php\
+Login.php\
+Register.php\
+Bookings.php\
+Admin.php\
+Logout.php\
+Settings.php\
+\
+CSS\
+\'97\'97\
+Style.css\
+\
+INC FILES\
+\'97\'97\'97\'97\'97\
+Footer.inc\
+Nav.inc\
+Header.inc\
+\
+IMAGE\
+\'97\'97\'97\
+Cabs.jpg\
+\
+TEXT FILES\
+\'97\'97\'97\'97\'97\'97\
+Readme\
+SQL codes used\
+\
+DOCX\
+\'97\'97\'97-\
+Checklist}

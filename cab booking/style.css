@@ -1,0 +1,138 @@
+/*Author : Sandeep Athiyarath
+  Date created: 27/03/2020
+  Last Modified: 30/03/2020
+This is a stylesheet prepared for improving
+the visual effects for a webpage created for cab bookings*/*/
+
+
+h1{
+  font: 600 3em Blackoak Std;
+}
+
+
+/*Navigation bar*/
+nav, h1{
+  text-align: center;
+}
+/*Navigation bar button setting*/
+.btn {
+  background-color: #4CAF10;
+  padding: 16px;
+  /*border-radius: 50%;*/
+  font-size: 16px;
+  text-decoration: none;
+  color:white;
+  box-shadow: 0px 8px 16px 0px rgba(88,53,24,0.8);
+}
+.btn:hover  {
+  background-color: #006b48;
+  /*font-size: 1.5em;*/
+}
+/* Active button styling*/
+a:active{
+  color: red;
+  border: 3px solid white;
+}
+div {
+  width: auto;
+  /*border: 1px solid green;*/
+  padding: 50px;
+  margin: 20px;
+}
+.btn.special {
+  float: right;
+}
+
+#user {
+  float: left;
+}
+
+h2{
+  font-size: 2.2em;
+  text-align: center;
+  font-weight: 600;
+}
+
+/*body and footer formatting*/
+#index{
+  background-image: url(cabs.jpg);
+  background-size: cover;
+}
+body{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+footer{
+  background-color: lightblue;
+   text-align: center;
+   position: fixed;
+   border-top: 3px solid blue;
+   font-size: 0.8em;
+   bottom: 0;
+   width:100%;
+   height:30px;
+   clear: both;
+}
+/*footer{
+	position:fixed;
+	left:0;
+	bottom:0;
+	width:100%;
+	background-color: lightblue;
+	text-align: center;
+}*/
+/*to remove the underline on the hyperlink in the footer*/
+footer a{
+  text-decoration: none;
+}
+
+/* formatting the form*/
+form{
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+legend{
+  font-size: 1.4em;
+  font-weight: bolder;
+  font-family: serif;
+}
+input[type=password], input[type=email], input[type=text], input[type=date], input[type=time] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #555;
+  outline: none;
+}
+
+/* Formating the table*/
+table {
+  border:1px solid black;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+th, td {
+  border:1px solid black;
+  text-align: left;
+  padding: 8px;
+}
+
+th{
+  background-color: lightblue;
+}
+th td{
+  font-weight: bolder;
+}
+
+.col1{
+  background-color: #f25500;
+  font-weight: bolder;
+}
+
+tr:nth-child(even) {background-color: #f2f233;}
+tr:nth-child(odd) {background-color: #ffffff;}
